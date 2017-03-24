@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>ATD</title>
+		<!--디자인 및 기능 기본-->
+		<link href="css/owl.carousel.css" rel="stylesheet" media="screen">
+		<link href="css/ranseed.css" rel="stylesheet" media="screen">
+    </head>
+    <body class="back-white">
+		<div style="position: fixed; width: 100%; z-index: 2;">
+			<table class="nav-normal">
+				<thead>
+					<tr>
+						<td class="left-item" onclick="location.replace('index.html')"><img src="img/icons_m/ic_back.png"></td>
+						<td class="title">결장자 정보</td>
+						<td class="right-item"></td>
+					</tr>
+				</thead>
+			</table>
+			<table class="sub-taps">
+				<thead>
+					<tr>
+						<td class="sub-taps-item active">결장자 정보</td>
+						<td class="sub-taps-item" onclick="location.href='0500detail_tips.html'">경기 분석 팁</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="innerbody no-padding" style="padding-top: 100px;
+												 padding-bottom: 60px;">
+			<table class="table-main">
+				<tbody>
+					<tr>
+						<td class='team'><img src="img/league/sample01.jpg"><br>AFC본머스</td>
+						<td><div class="run-time" style="padding-top: 0;">19 : 00</div></td>
+						<td class='team'><img src="img/league/sample02.jpg"><br>노리치 시티</td>
+					</tr>
+				</tbody>
+			</table>
+			<span id="tapsContents"><!--추후 0500detail_tips.html 의 table 부분을 여기에 넣으면 됩니다. -->
+				<table class='table-info-absentee'>
+					<thead>
+						<tr class="animate loading">
+							<td colspan="5"><strong class="font-blue">HOME</strong> AFC본머스</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='absentee-title animate loading'>
+							<td>결장선수</td>
+							<td>포지션</td>
+							<td>출전수</td>
+							<td>득점수</td>
+							<td>결장수</td>
+						</tr>
+						<tr class='absentee-body animate loading'>
+							<td>홍길동</td>
+							<td>
+								<span class="btn blue vsmall">DF</span>
+								<span class="star active">★</span>
+								<span class="star active">★</span>
+								<span class="star active">★</span>
+								<span class="star">★</span>
+								<span class="star">★</span>
+							</td>
+							<td>10</td>
+							<td>20</td>
+							<td>15</td>
+						</tr>
+						<tr class='absentee-body animate loading'>
+							<td>호나우딩요</td>
+							<td>
+								<span class="btn orange vsmall">GK</span>
+								<span class="star active">★</span>
+								<span class="star active">★</span>
+								<span class="star">★</span>
+								<span class="star">★</span>
+								<span class="star">★</span>
+							</td>
+							<td>10</td>
+							<td>20</td>
+							<td>15</td>
+						</tr>
+						<tr class='absentee-body animate loading'>
+							<td>홍길동</td>
+							<td>
+								<span class="btn green vsmall">MF</span>
+								<span class="star active">★</span>
+								<span class="star active">★</span>
+								<span class="star active">★</span>
+								<span class="star active">★</span>
+								<span class="star active">★</span>
+							</td>
+							<td>10</td>
+							<td>20</td>
+							<td>15</td>
+						</tr>
+					</tbody>
+					<thead>
+						<tr class="animate loading">
+							<td colspan="5"><strong class="font-blue">HOME</strong> AFC본머스</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='absentee-title animate loading'>
+							<td>결장선수</td>
+							<td>포지션</td>
+							<td>출전수</td>
+							<td>득점수</td>
+							<td>결장수</td>
+						</tr>
+						<tr class='absentee-body animate loading'>
+							<td>홍길동</td>
+							<td>
+								<span class="btn red vsmall">FW</span>
+								<span class="star active">★</span>
+								<span class="star active">★</span>
+								<span class="star active">★</span>
+								<span class="star">★</span>
+								<span class="star">★</span>
+							</td>
+							<td>10</td>
+							<td>20</td>
+							<td>15</td>
+						</tr>
+					</tbody>
+				</table>
+			</span>
+		</div>
+		<div class="case-info-company">
+			고객센터 <strong>injurydata29@gmail.com</strong>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/ranseed.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script>
+			var splashOpen = 0;
+			$(document).ready(function()
+		    {	
+			});
+			
+			$(window).load(function()
+		    {
+				loadingAnimation({interval: 100, accelerate: 4});
+				subTapsControl();
+			});
+			
+			function subTapsControl(){//서브텝 컨트롤 입니다.
+				var isDragging = 0;//터치 드래그 체크
+				$(".sub-taps-item").click(function() {
+						$(this).addClass('active');
+						$(".sub-taps-item").not(this).each(function(){
+							$(this).removeClass('active');
+						});
+						//**********************************
+						//taps 이벤트를 여기에 넣으시면 됩니다.
+						//**********************************
+				});
+			}
+		</script>
+    </body>
+</html>

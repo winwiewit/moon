@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.saint.main.persistence.MonitorMapper">  
+   <select id="getWorkerList" resultType="WorkerVO" >
+    SELECT * 
+    FROM CONSMAN.SAINT
+    ORDER BY ID
+   </select>
+    <update id="updateWorker" parameterType="WorkerVO">
+   		UPDATE CONSMAN.SAINT
+   		SET
+   			STATUS = #{status}
+   		WHERE
+   			ID = #{id}
+   	</update>
+   	
+   	<update id="updateCCTVImg" parameterType="WorkerVO">
+   		UPDATE CONSMAN.SAINT
+   		SET
+   			IMG_CCTV = #{img_cctv}
+   		WHERE
+   			ID = #{id}
+   	</update>
+    
+    
+</mapper>
+

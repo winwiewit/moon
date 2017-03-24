@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>ATD</title>
+		<!--디자인 및 기능 기본-->
+		<link href="css/owl.carousel.css" rel="stylesheet" media="screen">
+		<link href="css/ranseed.css" rel="stylesheet" media="screen">
+    </head>
+    <body class="back-white">
+		<div style="position: fixed; width: 100%; z-index: 2;">
+			<table class="nav-taps">
+				<thead>
+					<tr>
+						<td><img class="taps-brand" src="img/logo.png"></td>
+						<td class="taps-item" onclick="location.href='index.html'"><div class="taps-img necktieman"></div>결장자정보</td>
+						<td class="taps-item active"><div class="taps-img sketchbook"></div>경기분석팁</td>
+						<td class="taps-item"><div class="taps-img chart"></div>스코어센터</td>
+						<td class="taps-item"><div class="taps-img analytics"></div>배당흐름</td>
+					</tr>
+				</thead>
+			</table>
+			<div class="owl-carousel sub-taps">
+				<div class="sub-taps-item active">축구</div>
+				<div class="sub-taps-item">농구</div>
+				<div class="sub-taps-item">야구</div>
+				<div class="sub-taps-item">하키</div>
+				<div class="sub-taps-item">기타1</div>
+				<div class="sub-taps-item">기타2</div>
+				<div class="sub-taps-item">기타3</div>
+			</div>
+			<div class="owl-carousel calendar">
+				<div class="calendar-item">11/01(수)</div>
+				<div class="calendar-item">11/02(목)</div>
+				<div class="calendar-item">11/03(금)</div>
+			</div>
+		</div>
+		<div class="innerbody no-padding" style="padding-top: 97px;
+												 padding-bottom: 60px;
+												 background-color: #f3f3f3;">
+			<table class='table-main-tips'>
+				<thead>
+					<tr class="animate loading">
+						<td class="announce">
+							<div class="contents"><span class="btn red vsmall">공지</span>   필독!! 저희 정보는 불법 도박을 위한 것이 아닙니다.</div>
+							<div class="tip-writer">2016-00-00    |    홍길동    |    HIT 1234</div>
+						</td>
+					</tr>
+					<tr class="animate loading">
+						<td class="announce">
+							<div class="contents"><span class="btn red vsmall">공지</span>   결장자 정보 시스템에 오신걸 진심으로 환영합니다.</div>
+							<div class="tip-writer">2016-00-00    |    홍길동    |    HIT 1234</div>
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="animate loading">
+						<td class="back-tip-card">
+							<div class="tip-card">
+								<div class="tip">[3월 3일] 레알마드리드 vs FC바르셀로나</div>
+								<div class="tip-writer">축구    |   Date 2016-00-00    |    홍길동    |    HIT 1234</div>
+							</div>
+						</td>
+					</tr>
+					<tr class="animate loading">
+						<td class="back-tip-card">
+							<div class="tip-card">
+								<div class="tip">레알마드리드에서 기록 중 입니다.
+최근 5경기 전승하였습니다.</div>
+								<div class="tip-writer">축구    |   Date 2016-00-00    |    홍길동    |    HIT 1234</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="case-info-company">
+			고객센터 <strong>injurydata29@gmail.com</strong>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/ranseed.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script>
+			var splashOpen = 0;
+			$(window).load(function()
+		    {
+				subTapsControl();
+				loadingAnimation();
+			});
+			
+			function subTapsControl(){//서브텝 컨트롤 입니다.
+				$('.sub-taps').owlCarousel({
+					loop:true,
+					margin:0,
+					height: 100,
+					nav:true,
+					navText: ["<img src='img/icons/ic_prev_double.png'>"
+							  ,"<img src='img/icons/ic_next_double.png'>"],
+					responsive:{
+						0:{items:5},
+						400:{items:6},
+						600:{items:10},
+						1000:{items:15},
+						1400:{items:18},
+						1800:{items:22}
+					}
+				});
+				
+				var isDragging = 0;//터치 드래그 체크
+				$(".sub-taps-item")
+					.mousedown(function() {
+						isDragging = 0;
+					})
+					.mousemove(function() {
+						isDragging++;
+					})
+					.mouseup(function() {
+						if(isDragging <= 3)
+						{
+							$(this).addClass('active');
+							$(".sub-taps-item").not(this).each(function(){
+								$(this).removeClass('active');
+							});
+							//**********************************
+							//taps 이벤트를 여기에 넣으시면 됩니다.
+							/*ex*/
+							$('.animate').addClass('loading');
+							setTimeout(function(){
+								loadingAnimation();
+							}, 100);
+							//**********************************
+						}
+						isDragging = 0;
+					});
+			}
+		</script>
+    </body>
+</html>

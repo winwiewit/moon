@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>ATD</title>
+		<!--디자인 및 기능 기본-->
+		<link href="css/owl.carousel.css" rel="stylesheet" media="screen">
+		<link href="css/ranseed.css" rel="stylesheet" media="screen">
+    </head>
+    <body class="back-white">
+		<div style="position: fixed; width: 100%; z-index: 2;">
+			<table class="nav-normal">
+				<thead>
+					<tr>
+						<td class="left-item" onclick="location.replace('index.html')"><img src="img/icons_m/ic_back.png"></td>
+						<td class="title">경기 분석 팁</td>
+						<td class="right-item"></td>
+					</tr>
+				</thead>
+			</table>
+			<table class="sub-normal">
+				<thead>
+					<tr>
+						<td class="title">[3월 3일] 레알마드리드 vs FC바르셀로나</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="innerbody no-padding" style="padding-top: 100px;
+												 padding-bottom: 60px;">
+			<span id="tapsContents"><!--추후 0500detail.html 의 table로 옮겨주세요. -->
+				<table class='table-info-tips'>
+					<thead>
+						<tr class="animate loading">
+							<td class="back-tip-card">
+								<div class="tip-card">
+									<div class="tip">레알마드리드에서 기록 중 입니다.
+최근 5경기 전승하였습니다.</div>
+									<div class="tip-writer">축구    |   DAte 2016-00-00    |    홍길동    |    HIT 1234</div>
+								</div>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="animate loading">
+							<td class="reply-head">
+								<img class="icon-small" src="img/icons/ic_bubble.png"> 댓글
+							</td>
+						</tr>
+						<tr class="animate loading">
+							<td class="reply-body">
+								<div class="write-date">2016-00-00</div>
+								<div class="nick-name">홍길동</div>
+								<div class="edit" onclick='popSelf()'><img src="img/icons/ic_small_menu.png"></div>
+								<div class="contents">레알마드리드가 꼭 이길거에요~!</div>
+							</td>
+						</tr>
+						<tr class="animate loading">
+							<td class="reply-body reply">
+								<div class="write-date">2016-00-00</div>
+								<div class="nick-name">ㄴ 홍길동</div>
+								<div class="edit" onclick='popOther()'><img src="img/icons/ic_small_menu.png"></div>
+								<div class="contents">바르셀로나가 꼭 이길거에요~!</div>
+							</td>
+						</tr>
+						<tr class="animate loading">
+							<td class="reply-body">
+								<div class="write-date">2016-00-00</div>
+								<div class="nick-name">홍길동</div>
+								<div class="edit" onclick='popAdmin()'><img src="img/icons/ic_small_menu.png"></div>
+								<div class="contents">레알마드리드가 꼭 이길거에요~!</div>
+							</td>
+						</tr>
+						<tr class="animate loading">
+							<td class="reply-body">
+								<div class="write-date">2016-00-00</div>
+								<div class="nick-name">홍길동</div>
+								<div class="edit" onclick='popBlocked()'><img src="img/icons/ic_small_menu.png"></div>
+								<div class="contents">레알마드리드가 꼭 이길거에요~!</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</span>
+		</div>
+		<div class="btn-hover animate loading" onclick='newReply()'><img src="img/icons/ic_bubble_c.png"></div>
+		<div class="case-info-company">
+			고객센터 <strong>injurydata29@gmail.com</strong>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/ranseed.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script>
+			var splashOpen = 0;
+			$(document).ready(function()
+		    {
+				
+			});
+			
+			$(window).load(function()
+		    {
+				loadingAnimation({interval: 100, accelerate: 4});
+				subTapsControl();
+			});
+			
+			function subTapsControl(){//서브텝 컨트롤 입니다.
+				var isDragging = 0;//터치 드래그 체크
+				$(".sub-taps-item").click(function() {
+						$(this).addClass('active');
+						$(".sub-taps-item").not(this).each(function(){
+							$(this).removeClass('active');
+						});
+						//**********************************
+						//taps 이벤트를 여기에 넣으시면 됩니다.
+						//**********************************
+				});
+			}
+			
+			function newReply(){
+				ranseedPopEditText({
+					title: '댓글 달기',
+					placeholder: '댓글',
+					icon: 'bubble',
+					btnText: '댓글달기'
+				});
+			}
+			
+			function popSelf(){
+				ranseedPopBtns({
+					title: '내 댓글',
+					btnText: ['내 댓글에 답글 달기', '댓글 수정'],
+					functionName: ['popAddSelf()', 'popEditSelf()']
+				});
+			}
+				function popAddSelf(){
+					popClose();
+					ranseedPopEditText({
+						title: '내 댓글에 답글 달기',
+						placeholder: '답글',
+						icon: 'bubble',
+						btnText: '답글 달기'
+					});
+				}
+				function popEditSelf(){
+					popClose();
+					ranseedPopEditText({
+						title: '댓글 수정',
+						placeholder: '댓글',
+						value: '레알마드리드만세!',
+						icon: 'bubble',
+						btnText: '댓글 수정'
+					});
+				}
+			
+			function popOther(){
+				popClose();
+				ranseedPopEditText({
+					title: '홍길동 님의 댓글',
+					placeholder: '답글',
+					icon: 'bubble',
+					btnText: '답글 달기'
+				});
+			}
+			
+			function popAdmin(){
+				ranseedPopBtns({
+					title: '홍길동 님의 댓글',
+					btnNum: 3,
+					btnText: ['답글 달기', '댓글 삭제', '전화번호 차단 및 댓글 삭제'],
+					functionName: ['popClose()', 'popClose()', 'popClose()']
+				});
+			}
+			
+			function popBlocked(){
+				ranseedPopBtn({
+					title: '댓글 권한이 차단되었습니다.',
+					subtitle: '관리자에게 문의해주세요.',
+					btnText: '확인',
+					functionName: 'popClose()'
+				});
+			}
+		</script>
+    </body>
+</html>
